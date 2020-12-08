@@ -1,4 +1,4 @@
-@code = File.read('7.txt').lines.map { |l| l.chomp }
+@code = File.read('7.txt').lines.map { |l| l.chomp.gsub(/\sbag(s?)/, '') }
 
 @bags = {}
 
@@ -20,7 +20,7 @@ last_count = -1
 
 bag_count = 0
 
-@required_bags << {i: 1, name: 'shiny gold bags', bags: @bags['shiny gold bags']}
+@required_bags << {i: 1, name: 'shiny gold', bags: @bags['shiny gold']}
 
 i = 1
 
@@ -70,4 +70,4 @@ def iter(bags, starting_point, index = 0)
   count
 end
 
-puts "#{iter(@required_bags, 'shiny gold bags')} bags are shiny"
+puts "#{iter(@required_bags, 'shiny gold')} bags are shiny"
